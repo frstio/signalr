@@ -319,10 +319,12 @@ func (c *Client) xconnect(url string, isReconnect bool) (*websocket.Conn, error)
 		retryCount = c.MaxConnectRetries
 	}
 
+	indefinite := c.MaxReconnectRetries == 0 && isReconnect
+
 	// Perform the connection in a retry loop.
 	var conn *websocket.Conn
 	var err error
-	for i := 0; i < retryCount; i++ {
+	for i := 0; i < retryCount || indefinite; i++ {
 		var resp *http.Response
 		conn, resp, err = dialer.Dial(url, header)
 		if err == nil {
@@ -635,34 +637,18 @@ func (c *Client) attemptReconnect() bool {
 	// Attempt to reconnect in a retry loop.
 	reconnected := false
 
-	if c.MaxReconnectRetries == 0 {
-		for {
-			debugMessage("%sattempting to reconnect...", prefixedID(c.CustomID))
-	
-			_, err := c.Reconnect()
-			if err != nil {
-				// Ignore the value of the error and just continue.
-				continue
-			}
-	
-			debugMessage("%sreconnected successfully", prefixedID(c.CustomID))
-			reconnected = true
-			break
-		}
-	} else {
-		for i := 0; i < c.MaxReconnectRetries; i++ {
-			debugMessage("%sattempting to reconnect...", prefixedID(c.CustomID))
+	for i := 0; i < c.MaxReconnectRetries || c.MaxReconnectRetries == 0; i++ {
+		debugMessage("%sattempting to reconnect...", prefixedID(c.CustomID))
 
-			_, err := c.Reconnect()
-			if err != nil {
-				// Ignore the value of the error and just continue.
-				continue
-			}
-
-			debugMessage("%sreconnected successfully", prefixedID(c.CustomID))
-			reconnected = true
-			break
+		_, err := c.Reconnect()
+		if err != nil {
+			// Ignore the value of the error and just continue.
+			continue
 		}
+
+		debugMessage("%sreconnected successfully", prefixedID(c.CustomID))
+		reconnected = true
+		break
 	}
 
 	// If the reconnect attempt succeeded, ignore the error. Since we are
