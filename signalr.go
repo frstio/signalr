@@ -634,18 +634,35 @@ func (c *Client) processReadMessagesError(err error, errHandler ErrHandler) bool
 func (c *Client) attemptReconnect() bool {
 	// Attempt to reconnect in a retry loop.
 	reconnected := false
-	for i := 0; i < c.MaxReconnectRetries; i++ {
-		debugMessage("%sattempting to reconnect...", prefixedID(c.CustomID))
 
-		_, err := c.Reconnect()
-		if err != nil {
-			// Ignore the value of the error and just continue.
-			continue
+	if c.MaxReconnectRetries == 0 {
+		for {
+			debugMessage("%sattempting to reconnect...", prefixedID(c.CustomID))
+	
+			_, err := c.Reconnect()
+			if err != nil {
+				// Ignore the value of the error and just continue.
+				continue
+			}
+	
+			debugMessage("%sreconnected successfully", prefixedID(c.CustomID))
+			reconnected = true
+			break
 		}
+	} else {
+		for i := 0; i < c.MaxReconnectRetries; i++ {
+			debugMessage("%sattempting to reconnect...", prefixedID(c.CustomID))
 
-		debugMessage("%sreconnected successfully", prefixedID(c.CustomID))
-		reconnected = true
-		break
+			_, err := c.Reconnect()
+			if err != nil {
+				// Ignore the value of the error and just continue.
+				continue
+			}
+
+			debugMessage("%sreconnected successfully", prefixedID(c.CustomID))
+			reconnected = true
+			break
+		}
 	}
 
 	// If the reconnect attempt succeeded, ignore the error. Since we are
