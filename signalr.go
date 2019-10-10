@@ -18,7 +18,7 @@ import (
 	"time"
 
 	scraper "github.com/carterjones/go-cloudflare-scraper"
-	"github.com/carterjones/signalr/hubs"
+	"github.com/frstio/signalr/hubs"
 	"github.com/gorilla/websocket"
 	"github.com/pkg/errors"
 )

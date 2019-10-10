@@ -1,12 +1,12 @@
-[![GoDoc](https://godoc.org/github.com/carterjones/signalr?status.svg)](https://godoc.org/github.com/carterjones/signalr)
-[![Build Status](https://travis-ci.org/carterjones/signalr.svg?branch=master)](https://travis-ci.org/carterjones/signalr)
-[![Go Report Card](https://goreportcard.com/badge/github.com/carterjones/signalr)](https://goreportcard.com/report/github.com/carterjones/signalr)
-[![Maintainability](https://api.codeclimate.com/v1/badges/c561e13d50cdd11e97a1/maintainability)](https://codeclimate.com/github/carterjones/signalr/maintainability)
-[![codecov](https://codecov.io/gh/carterjones/signalr/branch/master/graph/badge.svg)](https://codecov.io/gh/carterjones/signalr)
+[![GoDoc](https://godoc.org/github.com/frstio/signalr?status.svg)](https://godoc.org/github.com/frstio/signalr)
+[![Build Status](https://travis-ci.org/frstio/signalr.svg?branch=master)](https://travis-ci.org/frstio/signalr)
+[![Go Report Card](https://goreportcard.com/badge/github.com/frstio/signalr)](https://goreportcard.com/report/github.com/frstio/signalr)
+[![Maintainability](https://api.codeclimate.com/v1/badges/c561e13d50cdd11e97a1/maintainability)](https://codeclimate.com/github/frstio/signalr/maintainability)
+[![codecov](https://codecov.io/gh/frstio/signalr/branch/master/graph/badge.svg)](https://codecov.io/gh/frstio/signalr)
 
 # Project depricated
 
-Unfortunately, I am no longer able to provide support for this project. Please see https://github.com/carterjones/signalr/network for some forks that have been created.
+Unfortunately, I am no longer able to provide support for this project. Please see https://github.com/frstio/signalr/network for some forks that have been created.
 
 # Overview
 
@@ -26,7 +26,7 @@ package main
 import (
 	"log"
 
-	"github.com/carterjones/signalr"
+	"github.com/frstio/signalr"
 )
 
 func main() {
@@ -58,22 +58,22 @@ func main() {
 
 Generic usage:
 
-- [Basic usage](https://github.com/carterjones/signalr/blob/master/examples/basic/main.go)
-- [Complex usage](https://github.com/carterjones/signalr/blob/master/examples/complex/main.go)
+- [Basic usage](https://github.com/frstio/signalr/blob/master/examples/basic/main.go)
+- [Complex usage](https://github.com/frstio/signalr/blob/master/examples/complex/main.go)
 
 Cryptocurrency examples:
 
-- [Bittrex](https://github.com/carterjones/signalr/blob/master/examples/bittrex/main.go)
-- [Cryptopia](https://github.com/carterjones/signalr/blob/master/examples/cryptopia/main.go)
+- [Bittrex](https://github.com/frstio/signalr/blob/master/examples/bittrex/main.go)
+- [Cryptopia](https://github.com/frstio/signalr/blob/master/examples/cryptopia/main.go)
 
 Proxy examples:
 
-- [No authentication](https://github.com/carterjones/signalr/blob/master/examples/proxy-simple)
-- [With authentication](https://github.com/carterjones/signalr/blob/master/examples/proxy-authenticated)
+- [No authentication](https://github.com/frstio/signalr/blob/master/examples/proxy-simple)
+- [With authentication](https://github.com/frstio/signalr/blob/master/examples/proxy-authenticated)
 
 # Documentation
 
-- GoDoc: https://godoc.org/github.com/carterjones/signalr
+- GoDoc: https://godoc.org/github.com/frstio/signalr
 - SignalR specification: https://docs.microsoft.com/en-us/aspnet/signalr/overview/
 - Excellent technical deep dive of the protocol: https://blog.3d-logic.com/2015/03/29/signalr-on-the-wire-an-informal-description-of-the-signalr-protocol/
 

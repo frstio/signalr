@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/carterjones/signalr"
+	"github.com/frstio/signalr"
 	"github.com/gorilla/websocket"
 )
 

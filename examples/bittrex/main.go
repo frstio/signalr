@@ -3,8 +3,8 @@ package main
 import (
 	"log"
 
-	"github.com/carterjones/signalr"
-	"github.com/carterjones/signalr/hubs"
+	"github.com/frstio/signalr"
+	"github.com/frstio/signalr/hubs"
 )
 
 // For more extensive use cases and capabilities, please see
